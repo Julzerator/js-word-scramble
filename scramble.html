@@ -4,33 +4,55 @@
     <title>Word Scramble</title>
 </head>
 <body>
-    <h1>A Javascript Word Scramble Game</h1>
+    <h1>A Westeros House Name Word Scramble Game</h1>
 
     <script>
-        var WORDS     = ["booger", "apple", "hackbright", "mango"];
-        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+            }
+        var WORDS     = ["hightower", "frey", "marbrand", "osgrey", "velaryon", "hill", "blackfyre", "targaryen", "rivers", "greyjoy", "bolton", "stark", "lannister", "baratheon", "tarth"];
+        var SCRAMBLED = ["ihrgthewo", "frye", "mrarband", "osreyg", "evoalryn", "hlil", "fbrlcyaek", "ratarengy", "viesrr", "yjeroyg", "bnolto", "atskr", "anntliesr", "aretabonh", "ratth"];
 
         var playing = true;
 
-        while (playing) {
+        var numWord = getRandomInt(0, 15);
+
+        alert("Welcome to the World of Westeros!");
+
+        while (playing === true) {
+            
 
             // Grab a random word from the WORDS array
+            var answerWord = WORDS[numWord];
+            console.log(answerWord);
 
             // Grab the corresponding scrambled word from the SCRAMBLED array
+            var scrambledWord = SCRAMBLED[numWord];
+            console.log(scrambledWord);
 
             // prompt the user to guess the original word when given the scrambled word
+            var guess = prompt("Guess this house: " + scrambledWord)
 
-            // If the user guesses wrong, tell them they were wrong and the right word.
+            guess = guess.toLowerCase()
+            // If the user guesses wrong, tell them they were wrong and the right word. //.toLowerCase()
+
+            if (guess === answerWord) {
+                window.alert("The Maester is Proud.")
+            } else {
+                window.alert("Do you want to be shipped to the Wall?")
+            };
             
             // If the user guesses the correct word, congratulate them.
 
-            playing = confirm("Press OK To keep playing or Cancel to quit");
+            playing = confirm("Press OK To keep playing or Cancel to quit")
+            console.log(playing)
 
-            // What does confirm() return?
+            // What does confirm() return? a boolean true or false
+
             // What does setting the playing variable do?
         }
 
-        alert("goodbye!");
+        alert("Open Roads!");
     </script>
     
 </body>
