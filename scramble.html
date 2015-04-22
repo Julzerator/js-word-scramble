@@ -9,7 +9,11 @@
     <script>
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
-            }
+        }
+        String.prototype.trim = function() {  
+            return this.replace(/^\s+|\s+$/g,"");  
+        }  
+
         var WORDS     = ["hightower", "frey", "marbrand", "osgrey", "velaryon", "hill", "blackfyre", "targaryen", "rivers", "greyjoy", "bolton", "stark", "lannister", "baratheon", "tarth"];
         var SCRAMBLED = ["ihrgthewo", "frye", "mrarband", "osreyg", "evoalryn", "hlil", "fbrlcyaek", "ratarengy", "viesrr", "yjeroyg", "bnolto", "atskr", "anntliesr", "aretabonh", "ratth"];
 
@@ -34,6 +38,7 @@
             var guess = prompt("Guess this house: " + scrambledWord)
 
             guess = guess.toLowerCase()
+            guess = guess.trim()
             // If the user guesses wrong, tell them they were wrong and the right word. //.toLowerCase()
 
             if (guess === answerWord) {
